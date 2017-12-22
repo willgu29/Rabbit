@@ -83,7 +83,7 @@ function sendMail (mailId, from, to, subject, html) {
       axios.post('https://mail.penguinjeffrey.com/api/mails/sent', {
         id: mailId
       }).then(function (res) {
-        console.log(res)
+        console.log(res.data)
       }).catch(function (err) {
         console.log(err)
       })
