@@ -2,6 +2,7 @@
 require('dotenv').config()
 var amqp = require('amqplib/callback_api');
 var nodemailer = require('nodemailer');
+var axios = require('axios')
 
 var url = process.env.AMQP_URL || ('amqp://' + process.env.AMQP_USER + ":" + process.env.AMQP_PW + '@localhost:5672');
 
