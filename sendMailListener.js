@@ -17,7 +17,7 @@ amqp.connect(url, function(err, conn) {
       var object = JSON.parse(data.content.toString());
       var email = object.email
       console.log(" [x] Received %s", JSON.stringify(object));
-      sendMail(email.id, email.sender, email.to, object.subject, object.html)
+      sendMail(email._id, email.sender, email.to, object.subject, object.html)
       ch.ack(data);
       console.log(" [x] Done sending email")
     }, {noAck: false});
@@ -57,7 +57,8 @@ let transporter = nodemailer.createTransport({
 function sendMail (mailId, from, to, subject, html) {
   var trackingUrl = ('https://mail.penguinjeffrey.com/api/mails/tracking.gif?id=' + mailId)
   var trackingCode = '<img src="' + trackingUrl + '" alt="Sent by Penguin Jeffrey" />'
-  var unsubscribeCode = ('<a style="text-align: center;" href="https://mail.penguinjeffrey.com/unsubscribe?id="' + mailId)
+  var unsubscribeUrl = ('https://mail.penguinjeffrey.com/unsubscribe?id=' + mailId)
+  var unsubscribeCode = ('<a style="text-align: center;" href="' + unsubscribeUrl + '">Unsubscribe</a>'
   var html = html + trackingCode + unsubscribeCode
   console.log(html)
 
