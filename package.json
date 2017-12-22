@@ -19,6 +19,7 @@
   "dependencies": {
     "amqplib": "^0.5.2",
     "axios": "^0.17.1",
+    "dotenv": "^4.0.0",
     "nodemailer": "^4.4.1"
   }
 }

@@ -1,9 +1,12 @@
 #!/usr/bin/env node
+require('dotenv').config()
 var amqp = require('amqplib/callback_api');
 var nodemailer = require('nodemailer');
 
+var url = process.env.AMQP_URL || ('amqp://' + process.env.AMQP_USER + ":" + process.env.AMQP_PW + '@localhost:5672');
 
-amqp.connect('amqp://localhost', function(err, conn) {
+amqp.connect(url, function(err, conn) {
+  console.log(err)
   conn.createChannel(function(err, ch) {
     var q = 'send_mail';
 
