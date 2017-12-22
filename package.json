@@ -1,0 +1,24 @@
+{
+  "name": "rabbit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willgu29/Rabbit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willgu29/Rabbit/issues"
+  },
+  "homepage": "https://github.com/willgu29/Rabbit#readme",
+  "dependencies": {
+    "amqplib": "^0.5.2",
+    "axios": "^0.17.1",
+    "nodemailer": "^4.4.1"
+  }
+}
