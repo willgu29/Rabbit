@@ -58,7 +58,7 @@ function sendMail (mailId, from, to, subject, html) {
   var trackingUrl = ('https://mail.penguinjeffrey.com/api/mails/tracking.gif?id=' + mailId)
   var trackingCode = '<img src="' + trackingUrl + '" alt="Sent by Penguin Jeffrey" />'
   var unsubscribeUrl = ('https://mail.penguinjeffrey.com/unsubscribe?id=' + mailId)
-  var unsubscribeCode = ('<a style="text-align: center;" href="' + unsubscribeUrl + '">Unsubscribe</a>'
+  var unsubscribeCode = ('<a style="text-align: center;" href="' + unsubscribeUrl + '">Unsubscribe</a>')
   var html = html + trackingCode + unsubscribeCode
   console.log(html)
 
