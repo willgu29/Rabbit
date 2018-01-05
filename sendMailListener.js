@@ -124,6 +124,7 @@ function createBody (mailId, html) {
       </tr>
     </table>
   </body> </html>`)
+  return body;
 }
 
 function createHeader (subject) {
