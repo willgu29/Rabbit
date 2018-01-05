@@ -17,10 +17,9 @@ amqp.connect(url, function(err, conn) {
     ch.consume(q, function(data) {
       var object = JSON.parse(data.content.toString());
       var email = object.email
-      console.log(" [x] Received %s", JSON.stringify(object));
+      console.log(" [x] Received " + email.id);
       sendMail(email._id, email.sender, email.to, object.subject, object.html)
       ch.ack(data);
-      console.log(" [x] Done sending email")
     }, {noAck: false});
     });
 });
@@ -78,8 +77,7 @@ function sendMail (mailId, from, to, subject, html) {
       if (error) {
           return console.log(error)
       }
-      console.log('Message %s sent: %s', info.messageId, info.response)
-      console.log(mailId)
+      console.log('Message %s sent: %s %s', info.messageId, info.response, mailId)
       axios.post('https://mail.penguinjeffrey.com/api/mails/sent', {
         id: mailId
       }).then(function (res) {
