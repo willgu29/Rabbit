@@ -12,7 +12,7 @@ amqp.connect(url, function(err, conn) {
     var q = 'send_mail';
 
     ch.assertQueue(q, {durable: true});
-    ch.prefetch(1); // waits for task to finish before unloading next in queue
+    ch.prefetch(5); // waits for task to finish before unloading next in queue
     console.log(" [*] Waiting for emails in %s. To exit press CTRL+C", q);
     ch.consume(q, function(data) {
       var object = JSON.parse(data.content.toString());
@@ -83,7 +83,7 @@ function sendMail (mailId, from, to, subject, html) {
       axios.post('https://mail.penguinjeffrey.com/api/mails/sent', {
         id: mailId
       }).then(function (res) {
-        console.log(res.data)
+        // console.log(res.data)
       }).catch(function (err) {
         console.log(err)
       })
