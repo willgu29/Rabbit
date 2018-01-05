@@ -28,7 +28,7 @@ amqp.connect(url, function(err, conn) {
 
 let transporter = nodemailer.createTransport({
     host: '127.0.0.1',
-    port: 25,
+    port: 587,
     secure: false,
     tls: {
       rejectUnauthorized:false
