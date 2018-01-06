@@ -67,8 +67,8 @@ function sendMail (mailId, from, to, subject, html) {
   // var html = html + trackingCode + unsubscribeCode
   // console.log(html)
   var strippedHTML = html.replace(/<[^>]+>/g, '');
-  console.log(strippedHTML)
-  // setup email data with unicode symbols
+  //TODO: decode entities
+
   let mailOptions = {
       from: from || '"Will Gu" <will@penguinjeffrey.com>', // sender address
       to: to,
