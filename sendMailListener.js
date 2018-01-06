@@ -29,6 +29,11 @@ let transporter = nodemailer.createTransport({
     host: '127.0.0.1',
     port: 587,
     secure: false,
+    pool: true,
+    maxConnections: 20,
+    rateDelta: 1000, //1 second
+    rateLimit: 15,
+    maxMessages: Infinity,
     tls: {
       rejectUnauthorized:false
     },
