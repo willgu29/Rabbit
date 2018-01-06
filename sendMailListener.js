@@ -66,13 +66,14 @@ function sendMail (mailId, from, to, subject, html) {
   // var unsubscribeCode = ('<a style="text-align: center;" href="' + unsubscribeUrl + '">Unsubscribe</a>')
   // var html = html + trackingCode + unsubscribeCode
   // console.log(html)
-
+  var strippedHTML = html.replace(/<[^>]+>/g, '');
+  console.log(strippedHTML)
   // setup email data with unicode symbols
   let mailOptions = {
       from: from || '"Will Gu" <will@penguinjeffrey.com>', // sender address
       to: to,
       subject: subject,
-      text: 'This email requires html to be displayed!',
+      text: strippedHTML,
       html: createHTML(mailId, subject, html), // html
       replyTo: from
   }
