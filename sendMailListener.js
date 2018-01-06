@@ -17,7 +17,7 @@ amqp.connect(url, function(err, conn) {
     ch.consume(q, function(data) {
       var object = JSON.parse(data.content.toString());
       var email = object.email
-      console.log(" [x] Received " + email.id);
+      console.log(" [x] Received " + email._id);
       sendMail(email._id, email.sender, email.to, object.subject, object.html)
       ch.ack(data);
     }, {noAck: false});
@@ -89,7 +89,7 @@ function sendMail (mailId, from, to, subject, html) {
       }).then(function (res) {
         // console.log(res.data)
       }).catch(function (err) {
-        console.log(err)
+        console.log(err.data)
       })
   })
 }
